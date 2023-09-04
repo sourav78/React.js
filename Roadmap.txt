@@ -1,0 +1,35 @@
+1. Why to learn React?
+    -> Build UI
+    -> Makes easy to manage and build complex frontend
+    -> Consistency UI 
+
+2. When should I learn React?
+    -> After mastering JS
+    -> 
+
+3. Why React created
+    -> Phantom msg problem by facebook
+
+
+Topic to learn ->
+    -> Core of react (state, JSX)
+    -> Component Reusability
+    -> Reusing of component -> Props
+    -> How to prapagate change -> Hooks
+    -> Router (react-router-DOM)
+    -> State Management -> Redux, Radux toolkit, Zustand, Context API
+    -> Class based component
+    -> BAAS Apps (Backend as a service)
+        .- Social media Apps
+        .- E-commerce Apps ... 
+
+De-merit of React:
+    -> React is not a complete solution in most cases
+    -> no SEO
+    -> Browser render JS the create HTML, CSS
+    -> No routing
+
+=> After React
+    -> Framework
+        .- Next js, Gatsby, Remix
+
