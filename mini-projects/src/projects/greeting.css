@@ -1,0 +1,25 @@
+
+
+.main-cont{
+    height: 100vh;
+    background-color: aquamarine;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.greet-cont{
+    padding: 16px;
+    max-width: 480px;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    background-color: #56f8fb;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+.text-head{
+    font-size: 50px;
+    color: rgb(58, 13, 76);
+}

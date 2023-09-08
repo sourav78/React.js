@@ -17,19 +17,16 @@ import App from './App';
 //     <a href='https://linkedin.com' target='_blank'>Visit Linkedin</a>
 // )
 
-const ReactElement = React.createElement(
-  'a',
-  {href: "https://linkedin.com", target: "_blank"},
-  "Linkedin"
-)
+// const ReactElement = React.createElement(
+//   'a',
+//   {href: "https://linkedin.com", target: "_blank"},
+//   "Linkedin"
+// )
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <App />
-    <h1>This is on main dir</h1>
-    {/* <ReactElement /> */}
-    
   </React.StrictMode>
 );
 

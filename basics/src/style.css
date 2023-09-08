@@ -5,3 +5,10 @@
     width: 150px;
     padding: 5px;
 }
+
+.redDiant{
+    width: 500px;
+    height: 500px;
+    background-color: #ff0808;
+    margin: auto;
+}
