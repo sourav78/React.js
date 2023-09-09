@@ -1,7 +1,8 @@
 
-// import Calender from "./projects/calender";
-// import Greeting from "./projects/greeting";
+import Calender from "./projects/calender";
+import Greeting from "./projects/greeting";
 import SimpleCalculator from "./projects/simpleCalculator";
+import NetflixSeries from "./projects/NetflixSeries";
 
  function App() {
   return (
@@ -11,7 +12,9 @@ import SimpleCalculator from "./projects/simpleCalculator";
         {/* <Calender /> */}
 
         {/* <Greeting /> */}
-        <SimpleCalculator/>
+        {/* <SimpleCalculator/> */}
+
+        <NetflixSeries/>
     </>
   );
 }

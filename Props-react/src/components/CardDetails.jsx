@@ -10,7 +10,7 @@ function CardDetails({details}) {
                     {Array.from({ length: 1 }).map((_, i) => (
                     <div key={i} className="mx-auto w-[300px] rounded-md border">
                         <img
-                        src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGh1bWFufGVufDB8fDB8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=60"
+                        src={details.profile}
                         alt="Laptop"
                         className="h-[200px] w-full rounded-t-md object-cover"
                         />
@@ -18,7 +18,7 @@ function CardDetails({details}) {
                         <h1 className="text-lg font-semibold">{details.name}</h1>
                         <h6 className="mt-3 font-medium">{details.role}</h6>
                         <p className="mt-3 text-sm text-gray-600">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, debitis?
+                            {details.tagline}
                         </p>
                         <div className="mt-4 flex flex-wrap">
                             <div className="w-auto p-1.5">
