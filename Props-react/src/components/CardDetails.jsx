@@ -1,11 +1,12 @@
 import React from 'react'
 
 function CardDetails({details}) {
+        console.log(details.insta);
     return (
         <>
-            <div className="mx-auto max-w-7xl px-2 lg:px-0">
+            <div className="">
         
-                <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+                <div className="">
                     {Array.from({ length: 1 }).map((_, i) => (
                     <div key={i} className="mx-auto w-[300px] rounded-md border">
                         <img

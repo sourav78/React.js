@@ -5,13 +5,32 @@ import CardDetails from './components/CardDetails'
 
 function App() {
 
-    let userDeatils1 = {
+    let userDeatils1 = [{
         name: "Jane",
         role: "UI/UX Designer",
         insta: "https://github.com/Vishwa07dev/IdeaAppWorkShop/blob/main/server.js",
         twitter: "https://twitter.com/iam_julu",
         linkedin: "https://www.linkedin.com/in/sourav-ranjan-sahoo-583066246/"
-    }
+    },
+    {
+        name: "Mark Toffer",
+        role: "System Engineer",
+        insta: "https://github.com/Vishwa07dev/IdeaAppWorkShop/blob/main/server.js",
+        twitter: "https://twitter.com/iam_julu",
+        linkedin: "https://www.linkedin.com/in/sourav-ranjan-sahoo-583066246/"
+    },{
+        name: "Robert Row",
+        role: "Server Engineer",
+        insta: "https://github.com/Vishwa07dev/IdeaAppWorkShop/blob/main/server.js",
+        twitter: "https://twitter.com/iam_julu",
+        linkedin: "https://www.linkedin.com/in/sourav-ranjan-sahoo-583066246/"
+    }]
+
+    let userList = []
+
+    userDeatils1.forEach((ele, ind) => {
+        userList.push(<CardDetails details = {ele}/>)
+    })
 
     return (
         <>
@@ -24,7 +43,13 @@ function App() {
                 <Cards cardName = "Hitesh" links = "Visit Youtube"/>
             </div>
 
-            <CardDetails details = {userDeatils1}/>
+            <div className='jaha'>
+
+            </div>
+
+            {/* <CardDetails details = {userDeatils1}/> */}
+
+            <div className=' flex flex-wrap gap-12'>{userList}</div>
           
         </>
     )
