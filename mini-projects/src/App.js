@@ -1,9 +1,10 @@
 
-import Calender from "./projects/calender";
-import Greeting from "./projects/greeting";
-import SimpleCalculator from "./projects/simpleCalculator";
-import NetflixSeries from "./projects/NetflixSeries";
-import BackgroundChanger from "./projects/backgroundChanger";
+// import Calender from "./projects/calender";
+// import Greeting from "./projects/greeting";
+// import SimpleCalculator from "./projects/simpleCalculator";
+// import NetflixSeries from "./projects/NetflixSeries";
+// import BackgroundChanger from "./projects/backgroundChanger";
+import SlotMachine from "./projects/slot machine/SlotMachine";
 
 
  function App() {
@@ -17,7 +18,9 @@ import BackgroundChanger from "./projects/backgroundChanger";
         {/* <SimpleCalculator/> */}
 
         {/* <NetflixSeries/> */}
-        <BackgroundChanger/>
+        {/* <BackgroundChanger/> */}
+
+        <SlotMachine/>
     </>
   );
 }
