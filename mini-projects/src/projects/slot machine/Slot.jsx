@@ -1,33 +1,33 @@
 import React, {useState} from 'react'
 
 
-function Slot(props) {
+function Slot({slot1}) {
     
     let [val1, setVal1] = useState("")
     let [val2, setVal2] = useState("")
     let [val3, setVal3] = useState("")
     let [luck, setLuck] = useState("Try Your Luck ⏳⏳⏳")
+
+    const allEqual = arr => arr.every( v => v === arr[0] )
     
-    let {slot1} = props
-    let {slot2} = props
-    let {slot3} = props
+    let valArr = slot1.split(" ")
     setTimeout(() => {
-        setVal1(slot1)
-    }, 3000)
+        setVal1(valArr[0])
+    }, 1000)
 
     setTimeout(() => {
-        setVal2(slot2)
-    }, 5000)
+        setVal2(valArr[1])
+    }, 1500)
 
     setTimeout(() => {
-        setVal3(slot3)
+        setVal3(valArr[2])
 
-        if(slot1 === slot2 && slot1 === slot3){
+        if(allEqual(valArr)){
             setLuck("You Won The Game 🎉🎉🎉")
         }else{
             setLuck("Better Luck Next Time 👍")
         }
-    }, 7000)
+    }, 2000)
 
         
 
