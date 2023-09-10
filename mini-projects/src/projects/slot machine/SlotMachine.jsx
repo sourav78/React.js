@@ -8,13 +8,13 @@ function SlotMachine() {
     
     const tryLuck = () => {
 
-        let rnd1 = Math.floor(Math.random()*3)
-        let rnd2 = Math.floor(Math.random()*3)
-        let rnd3 = Math.floor(Math.random()*3)
+        // let rnd1 = Math.floor(Math.random()*3)
+        // let rnd2 = Math.floor(Math.random()*3)
+        // let rnd3 = Math.floor(Math.random()*3)
 
         let slotItem = ["❤️", "😊", "✊"]
 
-        return `${slotItem[rnd1]} ${slotItem[rnd2]} ${slotItem[rnd3]}`
+        return `${slotItem[Math.floor(Math.random()*3)]} ${slotItem[Math.floor(Math.random()*3)]} ${slotItem[Math.floor(Math.random()*3)]}`
     }
 
     useEffect(()=>{

@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 
-
 function Slot({slot1}) {
     
     let [val1, setVal1] = useState("")
@@ -28,8 +27,6 @@ function Slot({slot1}) {
             setLuck("Better Luck Next Time 👍")
         }
     }, 2000)
-
-        
 
     return (
         <>
