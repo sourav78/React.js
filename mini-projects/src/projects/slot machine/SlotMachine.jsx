@@ -19,7 +19,6 @@ function SlotMachine() {
 
     useEffect(()=>{
         tryLuck()
-
     }, [check])
 
 
@@ -32,7 +31,7 @@ function SlotMachine() {
                     onClick={() => setCheck((prev) => !prev)}
                 >Try Your Luck</button>
                 </div>
-               <Slot slot1 = {tryLuck()}/>
+               <Slot slot1 = {tryLuck}/>
             </div>
         </>
     )

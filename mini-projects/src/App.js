@@ -4,8 +4,8 @@
 // import SimpleCalculator from "./projects/simpleCalculator";
 // import NetflixSeries from "./projects/NetflixSeries";
 // import BackgroundChanger from "./projects/backgroundChanger";
-// import SlotMachine from "./projects/slot machine/SlotMachine";
-import PasswordGenerator from "./projects/Password generator/PasswordGenerator";
+import SlotMachine from "./projects/slot machine/SlotMachine";
+// import PasswordGenerator from "./projects/Password generator/PasswordGenerator";
 
 
  function App() {
@@ -21,9 +21,9 @@ import PasswordGenerator from "./projects/Password generator/PasswordGenerator";
         {/* <NetflixSeries/> */}
         {/* <BackgroundChanger/> */}
 
-        {/* <SlotMachine/> */}
+        <SlotMachine/>
 
-        <PasswordGenerator/>
+        {/* <PasswordGenerator/> */}
     </>
   );
 }
