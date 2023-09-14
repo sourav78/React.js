@@ -1,15 +1,9 @@
 import React from 'react'
-import { useState } from 'react'
-import { useEffect } from 'react'
 import { useLoaderData } from 'react-router-dom'
 
 function Github() {
 
     const res = useLoaderData()
-
-    const [profile, setProfile] = useState("")
-    const [name, setName] = useState("")
-    const [followers, setFollowers] = useState("")
 
     // useEffect(() => {
     //   fetch("https://api.github.com/users/sourav78")
@@ -25,7 +19,7 @@ function Github() {
     return (
         <>
             <div className=" p-10">
-            <div className="relative h-[400px] w-[300px] rounded-md m-auto">
+            <div className="relative h-[400px] w-[300px] rounded-md m-auto overflow-hidden">
                 <img
                     src={res.avatar_url}
                     alt="AirMax Pro"
@@ -41,7 +35,7 @@ function Github() {
                         Followers : {res.followers}
                     </p>
                     <button className="mt-2 inline-flex cursor-pointer items-center text-sm font-semibold text-white">
-                        <a href="https://github.com/sourav78" target="_blank">
+                        <a href="https://github.com/sourav78" target="_blank" rel="noreferrer"> 
                             View Profile
                         </a>
                     </button>

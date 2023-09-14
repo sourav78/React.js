@@ -1,11 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
 import Layout from './Layout';
 import Home from './Components/Home/Home';
-import Header from './Components/Header/Header';
 import About from './Components/About/About';
 import Contact from './Components/Contact/Contact';
 import User from './Components/User/user';
