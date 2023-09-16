@@ -7,7 +7,7 @@ function Formvalidation() {
     const [name, setName] = useState("")
     const [greetname, setGreetName] = useState("")
     return (
-        <div className="cont">
+        <div className="cont dark">
             <h1 className='name'>Hello {greetname}</h1>
             <input 
                 type="text" 
