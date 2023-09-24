@@ -17,7 +17,7 @@ function NavBar() {
         let data_key = Object.keys(data)
         let main_arr = data_key.map((ele, ind) => {
             return {
-                title: ele,
+                label: ele,
                 key: ind
             }
         })
@@ -58,6 +58,7 @@ function NavBar() {
                                         items,
                                         onClick: handleMenuClick,
                                     }}
+                                    trigger={['click']}
                                     onOpenChange={handleOpenChange}
                                     open={open}
                                     >
