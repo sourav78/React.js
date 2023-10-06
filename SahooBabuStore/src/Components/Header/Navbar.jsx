@@ -70,7 +70,6 @@ function Navbar() {
                                     onOpenChange={handleOpenChange}
                                     open={open}
                                     >
-                                    <a onClick={(e) => e.preventDefault()}>
                                         <Space>
                                         <NavLink
                                             to="/product"
@@ -82,7 +81,6 @@ function Navbar() {
                                         </NavLink>
                                             <DownOutlined style={{ fontSize: '14px'}} />
                                         </Space>
-                                    </a>
                                 </Dropdown>
                             </li>
                             <li className=' cursor-pointer'>
