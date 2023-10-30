@@ -49,7 +49,7 @@ function App() {
                <div className=" flex justify-center">
                 <NotesForm/>
                </div>
-               <div className=" mt-20 px-6 flex gap-4 flex-wrap">
+               <div className=" mt-20 px-6 flex justify-center sm:justify-start gap-4 flex-wrap">
                 {
                   notes.map((note) => {
                     return <div key={note.id}>

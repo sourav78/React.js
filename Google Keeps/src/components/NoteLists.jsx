@@ -38,31 +38,31 @@ function NoteLists({note}) {
     }
 
     const setBgBlue = () => {
-        setCardColor("bg-blue-400")
+        setCardColor("bg-blue-300")
         editNote(note.id, {...note , title: editTitle, note: editNotes, cardColor: cardColor})
     }
     const setBgPink = () => {
-        setCardColor("bg-pink-400")
+        setCardColor("bg-pink-300")
         editNote(note.id, {...note , title: editTitle, note: editNotes, cardColor: cardColor})
     }
     const setBgCyan = () => {
-        setCardColor("bg-cyan-400")
+        setCardColor("bg-cyan-300")
         editNote(note.id, {...note , title: editTitle, note: editNotes, cardColor: cardColor})
     }
     const setBgGreen = () => {
-        setCardColor("bg-green-400")
+        setCardColor("bg-green-300")
         editNote(note.id, {...note , title: editTitle, note: editNotes, cardColor: cardColor})
     }
     const setBgPurple = () => {
-        setCardColor("bg-purple-400")
+        setCardColor("bg-purple-300")
         editNote(note.id, {...note , title: editTitle, note: editNotes, cardColor: cardColor})
     }
     const setBgYellow = () => {
-        setCardColor("bg-yellow-400")
+        setCardColor("bg-yellow-300")
         editNote(note.id, {...note , title: editTitle, note: editNotes, cardColor: cardColor})
     }
     const setBgOrange = () => {
-        setCardColor("bg-orange-400")
+        setCardColor("bg-orange-300")
         editNote(note.id, {...note , title: editTitle, note: editNotes, cardColor: cardColor})
     }
     
