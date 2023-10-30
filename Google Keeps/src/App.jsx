@@ -9,7 +9,7 @@ function App() {
   const [notes, setNotes] = useState([])
 
   const addNotes = (title, note) => {
-    setNotes((prev) => [{ id: Date.now(), title: title, note: note}, ...prev])
+    setNotes((prev) => [{ id: Date.now(), title: title, note: note, cardColor: "bg-white"}, ...prev])
   }
 
   const deleteNote = (id) => {
