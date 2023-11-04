@@ -69,37 +69,37 @@ function NoteLists({note}) {
     const content = (
         
         <div className="flex gap-3">
-               <Tooltip placement='top' title={"Double click"}>
+                <Tooltip placement='top' title={"Double click"}>
                     <div className="blue w-6 h-6 rounded-full bg-blue-400 cursor-pointer hover:outline outline-2 outline-blue-400 outline-offset-2"
                             onClick={setBgBlue}
                         ></div>
                 </Tooltip>
-               <Tooltip placement='top' title={"Double click"}>
+                <Tooltip placement='top' title={"Double click"}>
                 <div className="blue w-6 h-6 rounded-full bg-pink-400 cursor-pointer hover:outline outline-2 outline-blue-400 outline-offset-2"
                     onClick={setBgPink}
                     ></div>
                 </Tooltip>
-               <Tooltip placement='top' title={"Double click"}>
+                <Tooltip placement='top' title={"Double click"}>
                 <div className="blue w-6 h-6 rounded-full bg-cyan-400 cursor-pointer hover:outline outline-2 outline-blue-400 outline-offset-2"
                     onClick={setBgCyan}
                     ></div>
                 </Tooltip>
-               <Tooltip placement='top' title={"Double click"}>
+                <Tooltip placement='top' title={"Double click"}>
                 <div className="blue w-6 h-6 rounded-full bg-green-400 cursor-pointer hover:outline outline-2 outline-blue-400 outline-offset-2"
                     onClick={setBgGreen}
                     ></div>
                 </Tooltip>
-               <Tooltip placement='top' title={"Double click"}>
+                <Tooltip placement='top' title={"Double click"}>
                 <div className="blue w-6 h-6 rounded-full bg-purple-400 cursor-pointer hover:outline outline-2 outline-blue-400 outline-offset-2"
                     onClick={setBgPurple}
                     ></div>
                 </Tooltip>
-               <Tooltip placement='top' title={"Double click"}>
+                <Tooltip placement='top' title={"Double click"}>
                 <div className="blue w-6 h-6 rounded-full bg-yellow-400 cursor-pointer hover:outline outline-2 outline-blue-400 outline-offset-2"
                     onClick={setBgYellow}
                     ></div>
                 </Tooltip>
-               <Tooltip placement='top' title={"Double click"}>
+                <Tooltip placement='top' title={"Double click"}>
                 <div className="blue w-6 h-6 rounded-full bg-orange-400 cursor-pointer hover:outline outline-2 outline-blue-400 outline-offset-2"
                     onClick={setBgOrange}
                     ></div>
@@ -114,7 +114,7 @@ function NoteLists({note}) {
                     className=' bg-transparent text-xl font-semibold p-[2px]'
                     value={note.title}
                     disabled
-                 />
+                />
 
                 <p className=' mt-2 text-base'>
                     {note.note}
