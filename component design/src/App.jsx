@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import Shoes from './Components/Shoes/Shoes'
 import Watches from './Components/watches/watches'
 import NavBar from './Components/Nav bar/NavBar'
+import LineChats from './Components/Graph/LineChats'
+import BarCharts from './Components/Graph/BarCharts'
 
 function App() {
 
@@ -27,7 +29,10 @@ function App() {
         }
       </div> */}
 
-      <NavBar/>
+      {/* <NavBar/> */}
+
+      {/* <LineChats /> */}
+      <BarCharts/>
 
     </>
   )
