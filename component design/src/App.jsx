@@ -4,6 +4,7 @@ import Watches from './Components/watches/watches'
 import NavBar from './Components/Nav bar/NavBar'
 import LineChats from './Components/Graph/LineChats'
 import BarCharts from './Components/Graph/BarCharts'
+import AreaCharts from './Components/Graph/AreaCharts'
 
 function App() {
 
@@ -32,7 +33,9 @@ function App() {
       {/* <NavBar/> */}
 
       {/* <LineChats /> */}
-      <BarCharts/>
+      {/* <BarCharts/> */}
+
+      <AreaCharts />
 
     </>
   )
