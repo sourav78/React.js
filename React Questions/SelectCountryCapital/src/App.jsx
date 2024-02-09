@@ -5,6 +5,8 @@ import './App.css'
 
 function App() {
 
+    const [borderColor, setBorderColor] = useState("#1b1bfe")
+
 
     const [allData, setAllData] = useState([])
     const [selectedData, setSelectedData] = useState([])
@@ -20,16 +22,26 @@ function App() {
     useEffect(() => {
         if(checkValue){
             let filteredData = allData.filter( item => !selectedData.includes(item))
-            setAllData(filteredData)
-            setSelectedData([])
+            setBorderColor("#07ef16")
+            setTimeout(() => {
+                setAllData(filteredData)
+                setSelectedData([])
+                setBorderColor("#1b1bfe")
+            }, 1000);
         }else{
             console.log("You selected the wrong country");
-            setSelectedData([])
+            setBorderColor("red")
+            setTimeout(() => {
+                setSelectedData([])
+                setBorderColor("#1b1bfe")
+            }, 1000);
         }
     }, [trigger])
 
     const handleClick = (e) => {
         const value = e.target.getAttribute("data-value")
+
+        
 
         const selectedValues = selectedData.concat(value)
         setSelectedData(selectedValues)
@@ -61,6 +73,7 @@ function App() {
                         className='btns'
                         onClick={handleClick}
                         data-value={data}
+                        style={{borderColor: `${selectedData.includes(data) ? borderColor : ''}`}}
                     >
                         {data}
                     </button>

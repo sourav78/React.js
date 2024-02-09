@@ -16,8 +16,9 @@
   margin: 10px 8px;
   border: 3px solid #24244766;
   border-radius: 8px;
+  transition: all ease 0.2s;
 }
 
-.btns:active{
+.btns:hover{
   border: 3px solid blue;
 }
