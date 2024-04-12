@@ -28,10 +28,10 @@ const mul = (n: number, m: number): number => { //This return type is assigned t
 
 //Type  keyword
 
-type funcType = (n:number, m:number) => number
+type funcType = (n: number, m: number) => number
 
-const addtion:funcType = (a, b) => {
-    return a*b;
+const addtion: funcType = (a, b) => {
+    return a * b;
 }
 
 console.log(addtion(2, 4));
@@ -64,14 +64,14 @@ type OBJ = {
 }
 
 
-const obj:OBJ = {
+const obj: OBJ = {
     name: 'Sourav',
     height: 150,
     weight: 67,
     isBoy: true
 }
 
-const obj2:OBJ = {
+const obj2: OBJ = {
     name: 'Rahul',
     height: 150,
     weight: 67
@@ -84,11 +84,11 @@ interface interfaceOBJ {
     isBoy?: boolean //Making the isBoy property optional
 }
 
-type FuncType = (n:number, m:number) => void
+type FType = (n: number, m: number) => void
 
-interface newIntObj extends interfaceOBJ{   //We can inherit one interface property to another one
+interface newIntObj extends interfaceOBJ {   //We can inherit one interface property to another one
     isLoggedIn?: boolean
-    func?: FuncType
+    func?: FType
 }
 
 const subrat: newIntObj = {
@@ -103,8 +103,73 @@ const jijj: newIntObj = {
     height: 98,
     weight: 988,
     func: (n, m) => {
-        console.log(n*m);
+        console.log(n * m);
     }
 }
 
 jijj?.func?.(10, 10); // To call an optional function we use optinal chaining (?.)
+
+
+//Functions in TS
+
+type FuncType = (n: number, m: number) => number
+
+const newFunc: FuncType = (n, m) => {
+    return n * m;
+}
+
+console.log(newFunc(12, 2));
+
+
+//Optinal parameter
+
+type FuncType2 = (n: number, m: number, l?: number) => number
+
+const func2: FuncType2 = (n, m, l) => {
+
+    if (typeof (l) === 'undefined') return n * m   //use type guard to check l is undefined or not
+
+    return n * m * l;
+}
+
+console.log(func2(2, 3, 3));
+
+
+//Default parameter
+
+type FuncType3 = (n: number, m: number, l?: number) => number
+
+const func3: FuncType2 = (n, m, l = 20) => {
+
+    return n * m * l;
+}
+
+console.log(func3(2, 3));
+
+//Default parameter - 2
+
+const func4 = (n: number, m: number, l: number = 20) => { //IN this case don't need to declare as optional
+
+    return n * m * l;
+}
+
+console.log(func4(5, 5, 2));
+
+
+//Rest parameter
+
+const restFunc = (...n:number[]) => {
+    return n;
+}
+
+console.log(restFunc(5, 5, 2));
+
+//with type
+
+type restType = (...n:number[]) => number
+
+const restFunc2:restType = (...n) => {
+    return n.reduce((acc, curr) => acc+curr);
+}
+
+console.log(restFunc2(5, 5, 2, 7, 9));

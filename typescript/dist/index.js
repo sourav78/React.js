@@ -53,3 +53,31 @@ const jijj = {
     }
 };
 jijj?.func?.(10, 10); // To call an optional function we use optinal chaining (?.)
+const newFunc = (n, m) => {
+    return n * m;
+};
+console.log(newFunc(12, 2));
+const func2 = (n, m, l) => {
+    if (typeof (l) === 'undefined')
+        return n * m; //use type guard to check l is undefined or not
+    return n * m * l;
+};
+console.log(func2(2, 3, 3));
+const func3 = (n, m, l = 20) => {
+    return n * m * l;
+};
+console.log(func3(2, 3));
+//Default parameter - 2
+const func4 = (n, m, l = 20) => {
+    return n * m * l;
+};
+console.log(func4(5, 5, 2));
+//Rest parameter
+const restFunc = (...n) => {
+    return n;
+};
+console.log(restFunc(5, 5, 2));
+const restFunc2 = (...n) => {
+    return n.reduce((acc, curr) => acc + curr);
+};
+console.log(restFunc2(5, 5, 2, 7, 9));
