@@ -51,3 +51,60 @@ const arr2: Array<number> = [52, 13, 24];
 const strArr2: Array<string> = ['ndkn', 'dugjsb'];
 const anyArr2: Array<any> = ['ndkn', 'dugjsb', 87, true]; //This array contains all type of datatypes. 
 console.log(anyArr2);
+
+
+
+//Objects in TS
+
+type OBJ = {
+    name: string
+    height: number,
+    weight: number,
+    isBoy?: boolean //Making the isBoy property optional
+}
+
+
+const obj:OBJ = {
+    name: 'Sourav',
+    height: 150,
+    weight: 67,
+    isBoy: true
+}
+
+const obj2:OBJ = {
+    name: 'Rahul',
+    height: 150,
+    weight: 67
+}
+
+interface interfaceOBJ {
+    name: string
+    height: number,
+    weight: number,
+    isBoy?: boolean //Making the isBoy property optional
+}
+
+type FuncType = (n:number, m:number) => void
+
+interface newIntObj extends interfaceOBJ{   //We can inherit one interface property to another one
+    isLoggedIn?: boolean
+    func?: FuncType
+}
+
+const subrat: newIntObj = {
+    name: 'subrat',
+    height: 130,
+    weight: 77,
+    isLoggedIn: false
+}
+
+const jijj: newIntObj = {
+    name: 'jijj',
+    height: 98,
+    weight: 988,
+    func: (n, m) => {
+        console.log(n*m);
+    }
+}
+
+jijj?.func?.(10, 10); // To call an optional function we use optinal chaining (?.)
