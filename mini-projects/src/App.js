@@ -5,7 +5,8 @@
 // import NetflixSeries from "./projects/NetflixSeries";
 // import BackgroundChanger from "./projects/backgroundChanger";
 // import SlotMachine from "./projects/slot machine/SlotMachine";
-import DynamicDropdown from "./projects/DynamicDropdown";
+// import DynamicDropdown from "./projects/DynamicDropdown";
+import NavBarTab from "./projects/NavBarTab";
 // import PasswordGenerator from "./projects/Password generator/PasswordGenerator";
 
 
@@ -25,7 +26,9 @@ import DynamicDropdown from "./projects/DynamicDropdown";
         {/* <SlotMachine/> */}
 
         {/* <PasswordGenerator/> */}
-        <DynamicDropdown/>
+        {/* <DynamicDropdown/> */}
+
+        <NavBarTab/>
     </>
   );
 }
