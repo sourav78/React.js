@@ -37,6 +37,18 @@ const addtion: funcType = (a, b) => {
 console.log(addtion(2, 4));
 
 
+
+
+//Optioning Type
+
+type themeMode = "dark" | "light"
+
+const theme: themeMode = "dark" // In this type we can only specify 2 value either dark || light
+// const theme1: themeMode = "orange" // It produce an error because 'orange' is not an option in themeMode
+
+
+
+
 //Array in TS
 
 // syntax-1
@@ -173,3 +185,44 @@ const restFunc2:restType = (...n) => {
 }
 
 console.log(restFunc2(5, 5, 2, 7, 9));
+
+
+
+//Function with object
+
+//Readonly**
+
+interface productType {
+    name: string,
+    stock: number,
+    price: number,
+    photo: string
+    readonly id: string
+}
+
+type getDataType = (product:productType) => void
+
+const getData:getDataType = (product) => {
+    product.name = "Camera"
+    // product.id = "ABD22" // We can not change the readonly property :)
+    console.log(product);
+}
+
+const productOne:productType = {
+    name: 'Mobile',
+    stock: 200,
+    price: 12000,
+    photo: 'one photo',
+    id: 'ABS12'
+}
+
+getData(productOne)
+
+
+
+//Never type
+
+const errorHandler = (): never => {
+    // return new Error() //When i return the error it type is Error type
+    throw new Error()  // But when i throw a error its type is never So i specify its type as never
+}

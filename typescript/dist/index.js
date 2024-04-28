@@ -17,6 +17,8 @@ const addtion = (a, b) => {
     return a * b;
 };
 console.log(addtion(2, 4));
+const theme = "dark"; // In this type we can only specify 2 value either dark || light
+// const theme1: themeMode = "orange" // It produce an error because 'orange' is not an option in themeMode
 //Array in TS
 // syntax-1
 const arr = [12, 23, 32, 12]; //This array only contains numbers
@@ -81,3 +83,21 @@ const restFunc2 = (...n) => {
     return n.reduce((acc, curr) => acc + curr);
 };
 console.log(restFunc2(5, 5, 2, 7, 9));
+const getData = (product) => {
+    product.name = "Camera";
+    // product.id = "ABD22" // We can not change the readonly property :)
+    console.log(product);
+};
+const productOne = {
+    name: 'Mobile',
+    stock: 200,
+    price: 12000,
+    photo: 'one photo',
+    id: 'ABS12'
+};
+getData(productOne);
+//Never type
+const errorHandler = () => {
+    // return new Error() //When i return the error it type is Error type
+    throw new Error(); // But when i throw a error its type is never So i specify its type as never
+};
