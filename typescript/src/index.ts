@@ -226,3 +226,72 @@ const errorHandler = (): never => {
     // return new Error() //When i return the error it type is Error type
     throw new Error()  // But when i throw a error its type is never So i specify its type as never
 }
+
+
+
+
+// ------------------------------------------------------------------------------------------------------
+
+
+
+//Classes in TS
+
+class Player{
+    private height;
+    public weight;
+    protected power;
+    readonly id: string;
+
+    constructor(height: number, weight:number, power: number){
+        this.height = height
+        this.weight = weight
+        this.power = power
+        this.id = String(Math.ceil(Math.random()*100000))
+    }
+
+    getHeight = () => {
+        return this.height
+    }
+}
+
+class Player2 extends Player{
+    constructor(height: number, weight:number, power: number){
+        super(height, weight, power)
+    }
+
+    getPower = () => {
+        return this.power
+    }
+}
+
+const julu = new Player2(150, 78, 90)
+console.log(julu.getHeight());
+console.log(julu.weight);
+console.log(julu.getPower());
+console.log(julu.id);
+
+//Geter and seter function
+
+class Employee{
+    private salary: number;
+    readonly id: string;
+
+    constructor(salary: number){
+        this.salary = salary
+        this.id = String(Math.ceil(Math.random()*100000))
+    }
+
+    get employeeSalary(): number {
+        return this.salary
+    }
+
+    set setEmployeeSalary(salary: number) {
+        this.salary = salary
+    }
+}
+
+const sourav = new Employee(30000)
+console.log(sourav.employeeSalary);
+sourav.setEmployeeSalary = 50000;
+console.log(sourav.employeeSalary);
+
