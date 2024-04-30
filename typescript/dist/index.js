@@ -144,3 +144,38 @@ const sourav = new Employee(30000);
 console.log(sourav.employeeSalary);
 sourav.setEmployeeSalary = 50000;
 console.log(sourav.employeeSalary);
+//Type Assertion
+//Syntax-1
+// const btn = document.getElementById('#btn') as HTMLElement
+//syntax-2
+// const btn = <HTMLElement> document.getElementById('#btn')
+//syntax-3
+const btn = document.getElementById('#btn');
+// btn.onclick;
+const image = document.getElementById('myimg');
+image.src = "https://pexels.com/v=hnjd8dhe7";
+const form = document.getElementById('myform');
+const myInput = document.querySelector("form > input");
+const num = document.getElementById("num");
+form.onsubmit = (e) => {
+    e.preventDefault();
+    const value = Number(myInput.value);
+    console.log(value);
+    console.log(typeof value);
+    num.style.color = "white";
+    num.innerText = (value + 20).toString();
+};
+const myObj = {
+    name: "sourav",
+    email: "sourav@gmail.com"
+};
+const getName = () => {
+    return myObj['name'];
+};
+const getEmail = () => {
+    return myObj['email'];
+};
+const getField = (key) => {
+    return myObj[key];
+};
+console.log(getField('email'));

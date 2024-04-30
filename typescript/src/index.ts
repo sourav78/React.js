@@ -295,3 +295,67 @@ console.log(sourav.employeeSalary);
 sourav.setEmployeeSalary = 50000;
 console.log(sourav.employeeSalary);
 
+
+
+
+//Type Assertion
+
+//Syntax-1
+// const btn = document.getElementById('#btn') as HTMLElement
+
+//syntax-2
+// const btn = <HTMLElement> document.getElementById('#btn')
+
+//syntax-3
+const btn = document.getElementById('#btn')!
+
+// btn.onclick;
+
+const image = document.getElementById('myimg') as HTMLImageElement
+
+image.src = "https://pexels.com/v=hnjd8dhe7"
+
+const form = document.getElementById('myform') as HTMLFormElement
+
+const myInput = document.querySelector("form > input") as HTMLInputElement
+const num = document.getElementById("num") as HTMLParagraphElement
+
+
+form.onsubmit = (e: SubmitEvent) => {
+    e.preventDefault()
+    const value = Number(myInput.value)
+    console.log(value);
+    console.log(typeof value);
+    num.style.color = "white"
+    num.innerText = (value+20).toString()
+    
+}
+
+
+
+// interface Person{
+//     [key: string] : string
+// }
+interface Person{
+    name: string,
+    email: string
+}
+
+const myObj: Person = {
+    name: "sourav",
+    email: "sourav@gmail.com"
+}
+
+const getName = ():string => {
+    return myObj['name']
+}
+
+const getEmail = ():string => {
+    return myObj['email']
+}
+
+const getField = (key: keyof Person):string => {
+    return myObj[key]
+}
+
+console.log(getField('email'));
