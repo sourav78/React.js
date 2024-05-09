@@ -359,3 +359,131 @@ const getField = (key: keyof Person):string => {
 }
 
 console.log(getField('email'));
+
+
+
+//--------------------------------------------
+
+//Utility Type
+
+//1. Partials<Type> -> Constructs a type with all properties of Type set to optional.
+
+type store = {
+    name: string,
+    stock: number,
+    price: number
+}
+
+type wholeSale = Partial<store>  //Now all the property of wholesale is set be optinal
+
+
+//2. Required<Type> -> Make a type consisting of all properties of Type set to required. The opposite of Partial.
+
+interface store2 {
+    name: string,
+    stock?: number,
+    price?: number
+}
+
+interface wholeSale2 extends Required<store2>{}
+
+const prod1:store2 = {
+    name: 'Mobile',
+    stock: 12
+}
+
+// const prod2:wholeSale2 = { // This object gives us error because all the properties of whileSale2 is set to required field.
+//     name: 'Laptop',
+//     stock: 23,
+// }
+
+
+//3. Readonly<Type> -> all properties of Type set to readonly.
+
+type store3 = {
+    name: string,
+    stock: number,
+    price: number
+}
+
+const prod3:Readonly<store3> = {
+    name: 'Mobile',
+    stock: 12,
+    price: 2300
+}
+
+// prod3.price = 1200  //Now if reassign a property it gives us error because we it to readonly.
+
+
+//4.Record<Keys, Type> -> 
+
+type store4 = Record<'name' | 'stock' | 'price', string>
+
+//example ->
+interface carBarnd{
+    brand: string
+}
+
+type cars = 'GTR' | 'Supra' | 'Urus'
+
+const cars:Record<cars, carBarnd> = {
+    GTR:{brand: 'Nissan'},
+    Supra:{brand: 'Toyota'},
+    Urus:{brand: 'Lambrogini'}
+}
+
+
+//5. Pick<Type, Keys> -> It is use to make a type from picking the set of prperties form other type
+
+interface orderInfo{
+    readonly id: string,
+    user: string,
+    city: string,
+    state: string,
+    country: string,
+    stutus: string,
+}
+
+type shipingInfo = Pick<orderInfo, 'city' | 'state' | 'country'>
+
+
+//6. Omit<Type, Keys> -> Constructs a type by picking all properties from Type and then removing Keys.
+
+interface orderInfo2{
+    readonly id: string,
+    user: string,
+    city: string,
+    state: string,
+    country: string,
+    stutus: string,
+}
+
+type orderStatus = Omit<orderInfo2, 'city' | 'state' | 'country'> // Omit remove the city, state and country from oderInfo2 and make a new type
+
+
+//7. Exclude<UnionType, ExcludedMembers> -> Constructs a type by excluding from UnionType all union members that are assignable to ExcludedMembers
+
+type members = string | number | boolean | null | undefined
+
+type members1 = Exclude<members, boolean | undefined>
+
+//8. Extract<Type, Union> -> Constructs a type by extracting from Type all union members that are assignable to Union.
+
+type members2 = Extract<members, string | null>
+
+//9. NonNullable<Type> -> Constructs a type by excluding null and undefined from Type.
+
+type nonNullableMembers = NonNullable<members>
+
+
+//10. Parameters<Type> -> Constructs a tuple type from the types used in the parameters of a function type Type.
+
+const myFunc = (a:number, b:number) => {
+    return a+b
+}
+
+type funcParams = Parameters<typeof myFunc> // [a: number, b: number]
+
+//11. ReturnType<Type> -> Constructs a type consisting of the return type of function Type.
+
+type funcReturnType = ReturnType<typeof myFunc>

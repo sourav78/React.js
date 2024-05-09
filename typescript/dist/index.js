@@ -179,3 +179,21 @@ const getField = (key) => {
     return myObj[key];
 };
 console.log(getField('email'));
+const prod1 = {
+    name: 'Mobile',
+    stock: 12
+};
+const prod3 = {
+    name: 'Mobile',
+    stock: 12,
+    price: 2300
+};
+const cars = {
+    GTR: { brand: 'Nissan' },
+    Supra: { brand: 'Toyota' },
+    Urus: { brand: 'Lambrogini' }
+};
+//10. Parameters<Type> -> Constructs a tuple type from the types used in the parameters of a function type Type.
+const myFunc = (a, b) => {
+    return a + b;
+};
