@@ -29,6 +29,7 @@ const arr2 = [52, 13, 24];
 const strArr2 = ['ndkn', 'dugjsb'];
 const anyArr2 = ['ndkn', 'dugjsb', 87, true]; //This array contains all type of datatypes. 
 console.log(anyArr2);
+const users2 = ["Pravat", "Situn"]; // This array only takes 3 value i.e 'Sourav' | "Pravat" | "Situn"
 const obj = {
     name: 'Sourav',
     height: 150,
@@ -197,3 +198,62 @@ const cars = {
 const myFunc = (a, b) => {
     return a + b;
 };
+//Generics in TS -> Generics is a concept in TS in which the function is changed into provided type. In this case we dont have to use any datatype.
+const normalFunc = (n) => {
+    return n;
+};
+const genericFunc = (n) => {
+    return n;
+};
+const ans = genericFunc(20);
+const ans2 = genericFunc("Sourav");
+const ans3 = genericFunc(false);
+const genericFunc2 = (n) => {
+    return n;
+};
+const person1 = {
+    name: "Sourav",
+    age: 20
+};
+const ans4 = genericFunc2(person1);
+console.log(ans4);
+console.log(ans4.name);
+//ex-2
+const genericFunc3 = (n, m) => {
+    return { n, m };
+};
+const ans5 = genericFunc3(144, 'Yup👍');
+console.log(ans5.m);
+const rubiks = {
+    side: 12,
+    color: "Blue"
+};
+const pyramid = {
+    name: "Pyramid",
+    side: 6,
+    color: "Black"
+};
+const genericFunc4 = (n, m) => {
+    return { n, m };
+};
+const ans6 = genericFunc4(12, 56);
+const ans7 = genericFunc4(rubiks, pyramid);
+console.log(ans7);
+const users = [
+    {
+        name: "Sourav",
+        age: 20
+    },
+    {
+        name: "Prabhat",
+        age: 21
+    },
+    {
+        name: "Situn",
+        age: 19
+    }
+];
+const filterPeopleByName = (arr, property, value) => {
+    return arr.filter((item) => item[property] === value);
+};
+console.log(filterPeopleByName(users, "name", "Situn"));

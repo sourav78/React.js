@@ -65,6 +65,10 @@ const anyArr2: Array<any> = ['ndkn', 'dugjsb', 87, true]; //This array contains 
 console.log(anyArr2);
 
 
+type name = 'Sourav' | "Pravat" | "Situn"
+
+const users2: Array<name> = ["Pravat", "Situn"] // This array only takes 3 value i.e 'Sourav' | "Pravat" | "Situn"
+
 
 //Objects in TS
 
@@ -487,3 +491,113 @@ type funcParams = Parameters<typeof myFunc> // [a: number, b: number]
 //11. ReturnType<Type> -> Constructs a type consisting of the return type of function Type.
 
 type funcReturnType = ReturnType<typeof myFunc>
+
+
+
+
+//Generics in TS -> Generics is a concept in TS in which the function is changed into provided type. In this case we dont have to use any datatype.
+
+
+const normalFunc = (n:number) => {
+    return n
+}
+
+const genericFunc = <Type> (n: Type) :Type => {
+    return n
+}
+
+const ans = genericFunc<number>(20)
+const ans2 = genericFunc<string>("Sourav")
+const ans3 = genericFunc(false)
+
+//ex-2
+
+type Gen = {
+    name: string,
+    age: number
+}
+
+const genericFunc2 = <Type> (n: Type) :Type => {
+    return n
+}
+
+const person1: Gen = {
+    name: "Sourav",
+    age: 20
+}
+
+const ans4 = genericFunc2<Gen>(person1)
+console.log(ans4);
+console.log(ans4.name);
+
+//ex-2
+
+const genericFunc3 = <Type1, Type2> (n: Type1, m: Type2): {n: Type1, m: Type2} => {
+    return {n, m}
+}
+
+const ans5 = genericFunc3<number, string>(144, 'Yup👍')
+console.log(ans5.m);
+
+// ex-4
+
+type qube1 = {
+    side: number,
+    color: string
+}
+
+type qube2 = {
+    name: string,
+    side: number,
+    color: string
+}
+
+const rubiks: qube1 = {
+    side: 12,
+    color: "Blue"
+}
+
+const pyramid: qube2 = {
+    name: "Pyramid",
+    side: 6,
+    color: "Black"
+}
+
+const genericFunc4 = <Type1, Type2 extends Type1> (n: Type1, m: Type2): {n: Type1, m: Type2} => {
+    return {n, m}
+}
+
+const ans6 = genericFunc4<number, number>(12, 56)
+
+const ans7 = genericFunc4<qube1, qube2>(rubiks, pyramid)
+console.log(ans7);
+
+
+//ex-5
+
+
+type People = {
+    name: string,
+    age: number
+}
+
+const users: Array<People> = [
+    {
+        name: "Sourav",
+        age: 20
+    },
+    {
+        name: "Prabhat",
+        age: 21
+    },
+    {
+        name: "Situn",
+        age: 19
+    }
+]
+
+const filterPeopleByName = <Type, Key extends keyof Type> (arr: Type[], property: Key, value: Type[Key]): Type[] => {
+    return arr.filter((item) => item[property] === value)
+}
+
+console.log(filterPeopleByName(users, "name", "Situn"));
