@@ -1,6 +1,7 @@
 import { Context, FormEvent, createContext, useContext, useEffect, useState } from "react";
 import Box from "./components/Box";
 import ThemeChanger from "./components/ThemeChanger"
+import UseReducerCounter from "./components/UseReducerCounter";
 
 // type Person = {
 //   name: string,
@@ -77,6 +78,7 @@ function App() {
   return (
     <ThemeContext.Provider value={{theme, toggleTheme}}>
       <ThemeChanger/>
+      <UseReducerCounter/>
     </ThemeContext.Provider>
   )
 }
