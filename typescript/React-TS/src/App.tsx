@@ -2,6 +2,7 @@ import { Context, FormEvent, createContext, useContext, useEffect, useState } fr
 import Box from "./components/Box";
 import ThemeChanger from "./components/ThemeChanger"
 import UseReducerCounter from "./components/UseReducerCounter";
+import RduxComp from "./components/rduxComp";
 
 // type Person = {
 //   name: string,
@@ -79,6 +80,7 @@ function App() {
     <ThemeContext.Provider value={{theme, toggleTheme}}>
       <ThemeChanger/>
       <UseReducerCounter/>
+      <RduxComp/>
     </ThemeContext.Provider>
   )
 }
