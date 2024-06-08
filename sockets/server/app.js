@@ -26,28 +26,34 @@ app.get('/', (req, res) => res.send('Hello World!'))
 
 let users = {}
 
+let themeMode = false
+
 io.on("connection", (socket) => {
-    console.log("Connected");
-    console.log("user: ", socket.id);
+    
 
     socket.emit('greet', "Welcome to the Room")
 
     socket.on("user-connect", (username) => {
         users[socket.id] = username
-        console.log(users);
+        
+        socket.emit("join-theme", themeMode)
         socket.broadcast.emit("join", `${users[socket.id]} is joined`)
     })
 
 
     socket.on("message", (message) => {
-        console.log(message);
 
         socket.broadcast.emit("recieve-message", {username: users[socket.id], message})
         // socket.broadcast.emit("recieve-message", message)
     })
 
+    socket.on('theme', (theme) => {
+        themeMode = theme
+        io.emit('theme', theme)
+        socket.broadcast.emit('theme-msg', `${users[socket.id]} is changed the theme to ${theme ? 'dark' : 'light'}.`)
+    })
+
     socket.on("disconnect", () => {
-        console.log(`${socket.id} id disconneted.`);
         delete users[socket.id]
     })
 })
