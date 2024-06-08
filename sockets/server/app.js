@@ -24,23 +24,31 @@ const io = new Server(server, {
 
 app.get('/', (req, res) => res.send('Hello World!'))
 
+let users = {}
+
 io.on("connection", (socket) => {
     console.log("Connected");
     console.log("user: ", socket.id);
 
     socket.emit('greet', "Welcome to the Room")
 
-    socket.broadcast.emit("join", `${socket.id} is joined`)
+    socket.on("user-connect", (username) => {
+        users[socket.id] = username
+        console.log(users);
+        socket.broadcast.emit("join", `${users[socket.id]} is joined`)
+    })
+
 
     socket.on("message", (message) => {
         console.log(message);
 
-        io.emit("recieve-message", message)
+        socket.broadcast.emit("recieve-message", {username: users[socket.id], message})
         // socket.broadcast.emit("recieve-message", message)
     })
 
     socket.on("disconnect", () => {
         console.log(`${socket.id} id disconneted.`);
+        delete users[socket.id]
     })
 })
 
