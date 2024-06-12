@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { TextField, Button } from "@mui/material";
 import { io } from "socket.io-client";
 import SingleMessage from "./SingleMessage";
@@ -158,9 +158,13 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
 }));
 
 const PublicChat = () => {
+
+  const messageContainer = useRef(null)
+
   const [username, setUsername] = useState(
     random_names[Math.floor(Math.random() * 100)]
   );
+
   const [message, setMessage] = useState("");
   const [chats, setChats] = useState([]);
 
@@ -219,6 +223,12 @@ const PublicChat = () => {
     };
   }, []);
 
+  useEffect(() => {
+    if (messageContainer.current) {
+      messageContainer.current.scrollTop = messageContainer.current.scrollHeight;
+    }
+  }, [chats]);
+
   return (
     <div className="main-cont">
       <div
@@ -240,7 +250,7 @@ const PublicChat = () => {
             />
           </div>
         </div>
-        <div className="mb-2 border-black p-1 h-[600px] flex flex-col overflow-y-auto ">
+        <div ref={messageContainer} className="mb-2 pb-15 border-black p-1 h-[600px] flex flex-col overflow-y-auto">
           {chats.map((chat, ind) => (
             <SingleMessage key={ind} data={chat} />
           ))}
