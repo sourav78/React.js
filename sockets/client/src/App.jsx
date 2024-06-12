@@ -16,6 +16,9 @@ const App = () => {
             <button 
               onClick={() => setComponents('public')}
               className={`bg-green-400 p-2 rounded shadow-md border-2 ${components === 'public' && 'outline'} outline-2 outline-blue-500`}>Public chat</button>
+            <button 
+              onClick={() => setComponents('random')}
+              className={`bg-slate-400 p-2 rounded shadow-md border-2 ${components === 'random' && 'outline'} outline-2 outline-blue-500`}>Random Rooms</button>
           </div>
         )
       }
