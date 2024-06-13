@@ -1,39 +1,24 @@
-import React, { useEffect, useMemo, useState } from 'react'
+import React, { useState } from 'react'
+
 
 import './App.css'
-import PublicChat from './components/PublicChat'
+import { useNavigate } from 'react-router-dom'
 
 const App = () => {
 
-  const [components, setComponents] = useState(null)
+  const navigate = useNavigate();
 
 
   return (
     <>
-      {
-        !components && (
-          <div className="p-2 flex justify-center">
-            <button 
-              onClick={() => setComponents('public')}
-              className={`bg-green-400 p-2 rounded shadow-md border-2 ${components === 'public' && 'outline'} outline-2 outline-blue-500`}>Public chat</button>
-            <button 
-              onClick={() => setComponents('random')}
-              className={`bg-slate-400 p-2 rounded shadow-md border-2 ${components === 'random' && 'outline'} outline-2 outline-blue-500`}>Random Rooms</button>
-          </div>
-        )
-      }
-      {
-        components === 'public' && (
-          <>
-            <div className="p-2">
-              <button 
-                onClick={() => setComponents(null)}
-                className='bg-gray-200 py-2 px-4 rounded text-lg'>Back</button>
-              <PublicChat />
-            </div>
-          </>
-        )
-      }
+      <div className="p-2 flex justify-center">
+        <button 
+          onClick={() => navigate("/public-chat")}
+          className={`bg-green-400 p-2 rounded shadow-md border-2 outline-2 outline-blue-500`}>Public chat</button>
+        <button 
+          onClick={() => navigate("/random-room")}
+          className={`bg-slate-400 p-2 rounded shadow-md border-2 outline-2 outline-blue-500`}>Random Rooms</button>
+      </div>
     </>
   )
 }
