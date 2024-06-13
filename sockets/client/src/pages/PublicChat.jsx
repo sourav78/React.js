@@ -171,6 +171,8 @@ const PublicChat = () => {
   const [message, setMessage] = useState("");
   const [chats, setChats] = useState([]);
 
+  const [userOnline, setUserOnline] = useState(0)
+
   const [isdarkMode, setIsdarkMode] = useState(false);
 
   const socket = useMemo(() => io("http://localhost:3000"), []);
@@ -208,6 +210,10 @@ const PublicChat = () => {
       setChats((prev) => [...prev, { username: "", message: join }]);
     });
 
+    socket.on("online", (online) => {
+        setUserOnline(online)
+    })
+
     socket.on("recieve-message", (data) => {
       console.log(data);
       setChats((prev) => [...prev, data]);
@@ -244,7 +250,10 @@ const PublicChat = () => {
         }`}
       >
         <div className="p-0 px-2 bg-green-500 flex items-center justify-between">
-          <h3 className="text-lg text-white text-center">Name: {username}</h3>
+          <div className="">
+            <h3 className="text-lg text-white text-center">Name: {username}</h3>
+            <p className="text-[12px] text-white">{userOnline} Online</p>
+          </div>
           <div className="">
             <FormControlLabel
               control={

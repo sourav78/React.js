@@ -13,6 +13,7 @@ const socketHandler = (io) => {
       console.log(`${username} connected`);
       socket.emit("join-theme", themeMode);
       socket.broadcast.emit("join", `${users[socket.id]} has joined`);
+      io.emit("online", Object.keys(users).length)
     });
 
     socket.on("message", (message) => {
@@ -28,6 +29,7 @@ const socketHandler = (io) => {
     socket.on("disconnect", () => {
       console.log(`User disconnected: ${socket.id}`);
       delete users[socket.id];
+      io.emit("online", Object.keys(users).length)
     });
   });
 };
