@@ -5,6 +5,7 @@ import App from './App.jsx'
 import './index.css'
 import RandomRoom from './pages/RandomRoom.jsx'
 import PublicChat from './pages/PublicChat.jsx'
+import DuoRoom from './pages/DuoRoom.jsx'
 
 const router = createBrowserRouter([
   {
@@ -18,7 +19,7 @@ const router = createBrowserRouter([
   {
     path: "/random-room",
     element: <RandomRoom/>
-  },
+  }
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
