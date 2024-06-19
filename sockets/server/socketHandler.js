@@ -58,19 +58,21 @@ const socketHandler = (io) => {
         socket.join(room.roomId)
         io.to(room.roomId).emit("get-room", room)
       }
-      console.log(rooms);
     })
 
 
-    socket.on("room-leave", (roomId) => {
+    socket.on("room-leave", ({roomId, socketId}) => {
       const index = rooms.findIndex((room) => room.roomId === roomId)
+
       
       delete rooms[index].player[socket.id]
       rooms[index].vacant = true
 
-      io.to(roomId).emit("get-room", rooms[index])
-
-      console.log(rooms);
+      if(Object.keys(rooms[index].player).length == 0){
+        rooms = rooms.filter((room) => room.roomId !== roomId)
+      }
+      
+      io.to(roomId).emit("leave-room", {room: rooms[index], socketId})
     })
 
 

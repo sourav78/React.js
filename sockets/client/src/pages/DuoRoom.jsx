@@ -8,11 +8,11 @@ const DuoRoom = ({openRoom, username}) => {
   const [room, setRoom] = useState(null)
 
   const onRoomLeave = () => {
-    // socket.emit("room-leave", room.roomId)
+    socket.emit("room-leave", {roomId: room.roomId, socketId: socket.id})
     // setTimeout(() => {
     //   openRoom(false)
     // }, 100);
-    openRoom(false)
+    // openRoom(false)
   }
 
   useEffect(() => {
@@ -29,9 +29,16 @@ const DuoRoom = ({openRoom, username}) => {
       console.log(room.player[Object.keys(room.player)[0]]);
     })
 
+    socket.on("leave-room", ({room, socketId}) => {
+      setRoom(room)
+      if(socketId === socket.id){
+        openRoom(false)
+      }
+    })
+
     return () => {
-      socket.emit("room-leave", room.roomId)
-    }
+      socket.disconnect();
+    };
 
   }, [])
 
@@ -49,11 +56,11 @@ const DuoRoom = ({openRoom, username}) => {
             <div className="sm:w-[35%] w-full sm:h-full h-40 flex sm:flex-col flex-row sm:border-r-2 border-r-0 sm:border-b-0 border-b border-black">
               {
                 room ? (
-                  <div className="sm:h-[50%] h-full w-1/2 sm:w-full sm:border-b border-b-0 sm:border-r-0 border-r border-black grid place-content-center">
+                  <div className="sm:h-[50%] h-full w-1/2 bg-gray-800 sm:w-full sm:border-b border-b-0 sm:border-r-0 border-r border-white grid place-content-center">
                     <div className="text-5xl m-auto font-bold bg-gray-500 w-16 h-16 text-white grid place-content-center rounded-full">
                       <span>{(room.player[Object.keys(room.player)[0]]).split("")[0]}</span>
                     </div>
-                    <p className="text-lg text-center mt-2">{room.player[Object.keys(room.player)[0]]}</p>
+                    <p className="text-lg text-white text-center mt-2">{room.player[Object.keys(room.player)[0]]}</p>
                   </div>
                 ) : (
                   <div className="sm:h-[50%] h-full w-1/2 sm:w-full grid place-content-center">
@@ -63,14 +70,14 @@ const DuoRoom = ({openRoom, username}) => {
               }
               {
                 room && Object.keys(room.player).length > 1 ? (
-                  <div className="sm:h-[50%] h-full w-1/2 sm:w-full sm:border-b border-b-0 sm:border-r-0 border-r border-black grid place-content-center">
+                  <div className="sm:h-[50%] h-full w-1/2 bg-gray-800 sm:w-full sm:border-b border-b-0 sm:border-r-0 border-r border-white grid place-content-center">
                     <div className="text-5xl m-auto font-bold bg-gray-500 w-16 h-16 text-white grid place-content-center rounded-full">
                       <span>{(room.player[Object.keys(room.player)[1]]).split("")[0]}</span>
                     </div>
-                    <p className="text-lg text-center mt-2">{room.player[Object.keys(room.player)[1]]}</p>
+                    <p className="text-lg text-white text-center mt-2">{room.player[Object.keys(room.player)[1]]}</p>
                   </div>
                 ) : (
-                  <div className="sm:h-[50%] h-full w-1/2 sm:w-full grid place-content-center">
+                  <div className="sm:h-[50%] bg-gray-800 h-full w-1/2 sm:w-full grid place-content-center">
                     <span className="text-3xl font-semibold text-gray-500">Loading...</span>
                   </div>
                 ) 
