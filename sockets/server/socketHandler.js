@@ -60,6 +60,9 @@ const socketHandler = (io) => {
       }
     })
 
+    socket.on("SEND_MESSAGE", ({message, socketId, roomId}) => {
+      io.to(roomId).emit("SENT_MESSAGE", {message, socketId})
+    })
 
     socket.on("room-leave", ({roomId, socketId}) => {
       const index = rooms.findIndex((room) => room.roomId === roomId)
