@@ -18,6 +18,9 @@ const App = () => {
         <button 
           onClick={() => navigate("/random-room")}
           className={`bg-slate-400 p-2 rounded shadow-md border-2 outline-2 outline-blue-500`}>Random Rooms</button>
+        <button 
+          onClick={() => navigate("/custom-room")}
+          className={`bg-yellow-500 p-2 rounded shadow-md border-2 outline-2 outline-blue-500`}>Custom Rooms</button>
       </div>
     </>
   )

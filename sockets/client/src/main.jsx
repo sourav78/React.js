@@ -6,6 +6,7 @@ import './index.css'
 import RandomRoom from './pages/RandomRoom.jsx'
 import PublicChat from './pages/PublicChat.jsx'
 import DuoRoom from './pages/DuoRoom.jsx'
+import CustomRoom from './pages/CustomRoom.jsx'
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
   {
     path: "/random-room",
     element: <RandomRoom/>
+  },
+  {
+    path: "/custom-room",
+    element: <CustomRoom/>
   }
 ])
 

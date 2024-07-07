@@ -78,6 +78,29 @@ const socketHandler = (io) => {
       io.to(roomId).emit("leave-room", {room: rooms[index], socketId})
     })
 
+    //Custom Room
+    
+    socket.on("CUSTOM_ROOM_JOIN", (roomId) => {
+
+      //This logic is use for leave the previous room that the socket is joined.
+      let allRooms = io.sockets.adapter.sids.get(socket.id)
+      allRooms.delete(socket.id)
+      if(allRooms){
+        allRooms.forEach(element => {
+          socket.leave(element)
+        });
+      }
+      console.log(allRooms);
+
+      socket.join(roomId)
+      socket.emit("CUSTOM_ROOM_JOINED", roomId)
+    })
+    
+    socket.on("CUSTOM_SEND_MESSAGE", ({roomId, message}) => {
+      io.to(roomId).emit("CUSTOM_SEND_MESSAGE", message)
+    })
+
+
 
     socket.on("disconnect", () => {
       console.log(`User disconnected: ${socket.id}`);
